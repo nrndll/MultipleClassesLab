@@ -46,10 +46,10 @@ public class BusTest {
     }
 
     @Test
-    //Test pu
+    //Test purpose is to confirm that the removePerson method will remove a Person from the passengers ArrayList
     public void busCanRemovePersonAsPassenger(){
-        bus.addPerson(person1);
-        bus.removePerson(person1);
+        bus.addPerson(person1); //Firstly we add person1 (we know this works)
+        bus.removePerson(person1); // Then we remove person1 using our removePerson method
         assertEquals(0, bus.passengersCount());
     }
 
