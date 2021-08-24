@@ -21,16 +21,22 @@ public class Bus{
         return this.destination;
     }
 
-    public int getCapacity(){
+    // established a method that when called returns the capacity int of the bus
+    public int getCapacity() {
         return this.capacity;
     }
-//
-//    public void addPassenger(Person person) {
-//        passenger.add(person)
-//    }
-//
+
+    // established a method that when called returns the size of (number of items in) the passengers variable
     public int passengersCount() {
         return passengers.size();
     }
 
+    // established a method that when called, adds the person object given to the passengers ArrayList variable
+    public void addPerson(Person person) {
+        this.passengers.add(person);
+    }
+
+    public Person removePerson(Person person) {
+         return passengers.remove(0);
+    }
 }

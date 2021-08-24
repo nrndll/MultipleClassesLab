@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 public class BusTest {
 
     Bus bus; // we declared a bus variable, its type is bus class, this is to be used later
+    Person person1;
+    Person person2;
 
     @Before // we set up the @Before which will run before each test
     public void before(){
@@ -33,6 +35,21 @@ public class BusTest {
     // Test purpose is to confirm bus.passengers starts as an empty array
     public void busPassengersStartsEmpty(){
         // To pass, the size() of bus.passengers should be 0, i.e the array is empty
+        assertEquals(0, bus.passengersCount());
+    }
+
+    @Test
+    // Test purpose is to confirm that after the addPerson method is called on bus, gthe passengers array has 1 passenger added to it
+    public void busCanAddPersonAsPassenger(){
+        bus.addPerson(person1);
+        assertEquals(1, bus.passengersCount());
+    }
+
+    @Test
+    //Test pu
+    public void busCanRemovePersonAsPassenger(){
+        bus.addPerson(person1);
+        bus.removePerson(person1);
         assertEquals(0, bus.passengersCount());
     }
 
