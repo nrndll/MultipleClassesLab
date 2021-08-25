@@ -33,10 +33,15 @@ public class Bus{
 
     // established a method that when called, adds the person object given to the passengers ArrayList variable
     public void addPerson(Person person) {
-        this.passengers.add(person);
+        if(this.passengersCount() < this.capacity){ this.passengers.add(person);}
     }
 
-    public Person removePerson(Person person) {
-         return passengers.remove(0);
+    public void removePerson(Person person) {
+         this.passengers.remove(person);
+    }
+
+    public void takePersonFromBusStop(BusStop busStop){
+        Person removedPerson = busStop.removePerson();
+        this.addPerson(removedPerson);
     }
 }

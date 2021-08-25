@@ -37,7 +37,7 @@ public class BusStopTest {
     @Test
     public void busStopRemovesPersonFromQueue(){
         busStop1.addPerson(person1);
-        busStop1.removePerson(person1);
+        busStop1.removePerson();
         assertEquals(0, busStop1.getQueueLength());
     }
 

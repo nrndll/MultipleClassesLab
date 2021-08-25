@@ -7,13 +7,14 @@ public class BusTest {
 
     Bus bus; // we declared a bus variable, its type is bus class, this is to be used later
     Person person1;
-    Person person2;
+    BusStop busStop;
 
     @Before // we set up the @Before which will run before each test
     public void before(){
         bus = new Bus("Edinburgh", 50); 
         //For each test a bus will be created
         //It will have destination "Edinburgh" and capacity 50
+        busStop = new BusStop("Comiston Road");
         
     }
 
@@ -46,11 +47,26 @@ public class BusTest {
     }
 
     @Test
+    public void busCannotAddPersonOverCapacity(){
+        bus = new Bus("Edinburgh", 1);
+        bus.addPerson(person1);
+        assertEquals(1, bus.passengersCount());
+    }
+
+    @Test
     //Test purpose is to confirm that the removePerson method will remove a Person from the passengers ArrayList
     public void busCanRemovePersonAsPassenger(){
         bus.addPerson(person1); //Firstly we add person1 (we know this works)
         bus.removePerson(person1); // Then we remove person1 using our removePerson method
         assertEquals(0, bus.passengersCount());
+    }
+
+    @Test
+    public void busCanTakePassengerFromBusStop(){
+        busStop.addPerson(person1);
+        bus.takePersonFromBusStop(busStop);
+        assertEquals(0, busStop.getQueueLength());
+        assertEquals(1, bus.passengersCount());
     }
 
 }
